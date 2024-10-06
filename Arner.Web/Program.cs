@@ -1,3 +1,6 @@
+using Arner.DataAccess;
+using Microsoft.EntityFrameworkCore;
+
 namespace Arner.Web
 {
     public class Program
@@ -8,6 +11,8 @@ namespace Arner.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<ArnerDbContext>(options =>
+                  options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 

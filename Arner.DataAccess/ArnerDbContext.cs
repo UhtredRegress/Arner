@@ -15,5 +15,10 @@ namespace Arner.DataAccess
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Provider> Providers { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Batch> Batchs { get; set; }
+        public DbSet<Models.Type> Types { get; set; }
     }
 }

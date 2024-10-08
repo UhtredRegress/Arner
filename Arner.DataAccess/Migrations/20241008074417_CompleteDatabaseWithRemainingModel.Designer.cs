@@ -4,6 +4,7 @@ using Arner.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Arner.DataAccess.Migrations
 {
     [DbContext(typeof(ArnerDbContext))]
-    partial class ArnerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241008074417_CompleteDatabaseWithRemainingModel")]
+    partial class CompleteDatabaseWithRemainingModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

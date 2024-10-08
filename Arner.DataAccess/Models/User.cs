@@ -19,9 +19,13 @@ namespace Arner.DataAccess.Models
         public string Email { get; set; }
         [MaxLength(15, ErrorMessage = "Invalid phone number")]
         public string PhoneNumber { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public string CreatedBy { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public string UpdatedBy { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        [MaxLength(100, ErrorMessage = "This is out of length")]
+        public string? CreatedBy { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        [MaxLength(100, ErrorMessage = "This is out of length")]
+        public string? UpdatedBy { get; set; }
+        public ICollection<Item> Items { get; }
+        public ICollection<Notification> Notifications { get; }
     }
 }

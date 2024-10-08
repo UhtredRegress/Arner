@@ -20,5 +20,13 @@ namespace Arner.DataAccess
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Batch> Batchs { get; set; }
         public DbSet<Models.Type> Types { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Item>()
+                .HasMany(e => e.Types)
+                .WithMany(e => e.Items)
+                .UsingEntity<ItemType>();
+        }
     }
 }

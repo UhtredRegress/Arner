@@ -4,6 +4,7 @@ using Arner.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,13 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Arner.DataAccess.Migrations
 {
     [DbContext(typeof(ArnerDbContext))]
-    partial class ArnerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241011033903_ModifyUserRelation")]
+    partial class ModifyUserRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -285,7 +288,8 @@ namespace Arner.DataAccess.Migrations
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -300,8 +304,6 @@ namespace Arner.DataAccess.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.HasKey("ID");
-
-                    b.HasAlternateKey("Username");
 
                     b.ToTable("Users");
                 });

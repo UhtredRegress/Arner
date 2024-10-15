@@ -27,6 +27,8 @@ namespace Arner.DataAccess
                 .HasMany(e => e.Types)
                 .WithMany(e => e.Items)
                 .UsingEntity<ItemType>();
+            modelBuilder.Entity<User>()
+                .HasAlternateKey(e => e.Username);
         }
     }
 }

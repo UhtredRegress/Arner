@@ -1,5 +1,9 @@
 using Arner.DataAccess;
+using Arner.DataAccess.Models;
+using Arner.Service;
+using Arner.Service.IRepository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Arner.Web
 {
@@ -11,8 +15,7 @@ namespace Arner.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<ArnerDbContext>(options =>
-                  options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
             var app = builder.Build();
 
@@ -24,6 +27,7 @@ namespace Arner.Web
                 app.UseHsts();
             }
 
+         
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

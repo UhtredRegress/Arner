@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Arner.DataAccess\Arner.DataAccess.csproj" />
+    <ProjectReference Include="..\Arner.Helper\Arner.Helper.csproj" />
   </ItemGroup>
 
 </Project>

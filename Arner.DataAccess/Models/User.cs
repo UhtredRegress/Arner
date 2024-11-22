@@ -15,10 +15,11 @@ namespace Arner.DataAccess.Models
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "The username is not valid.")]
         public string Username { get; set; }
         public string Password { get; set; }
+        [RegularExpression(@"[\S]+",ErrorMessage = "Email cannot contain space")]
         [EmailAddress(ErrorMessage = "Invalid email address")]
         public string Email { get; set; }
-        [Length(10,10, ErrorMessage = "Invalid phone number")]
-        [RegularExpression(@"^0[1-9][0-9]+$", ErrorMessage = "Invalid phone format")]
+        [Length(10,10, ErrorMessage = "Invalid vietnamese phone number length")]
+        [RegularExpression(@"^0[1-9][0-9]+$", ErrorMessage = "Invalid phone vietnamese number format")]
         public string PhoneNumber { get; set; }
         public DateTime? CreatedAt { get; set; }
         [MaxLength(100, ErrorMessage = "This is out of length")]

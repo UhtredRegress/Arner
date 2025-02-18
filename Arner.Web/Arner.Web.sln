@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arner.Service", "..\Arner.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arner.DataAccess", "..\Arner.DataAccess\Arner.DataAccess.csproj", "{45004461-EF13-4D92-9BF1-3FEB14C60433}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arner.API", "..\Arner.API\Arner.API.csproj", "{55191607-9F81-466C-9FA3-C1AFE9218DE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arner.API", "..\Arner.API\Arner.API.csproj", "{55191607-9F81-466C-9FA3-C1AFE9218DE9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arner.Helper", "..\Arner.Helper\Arner.Helper.csproj", "{78FDA452-B3A7-47F7-9F7A-2F4FC0101C52}"
 EndProject

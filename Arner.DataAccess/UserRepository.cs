@@ -45,5 +45,7 @@ namespace Arner.Service
             await _context.SaveChangesAsync();
             return user;
         }
+        
+        public async Task<IEnumerable<User>> GetAll() => await _context.Users.ToListAsync();
     }
 }

@@ -63,6 +63,22 @@ namespace Arner.Web.API
             }
         }
 
+        [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetAll()
+        {
+            try
+            {
+                var listUser = await _userService.GetAll();
+                return Ok(listUser.ToList());
+            }
+            catch (Exception) 
+            {
+                return StatusCode(500, "Error while getting data");
+            }
+        }
+
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]

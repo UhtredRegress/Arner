@@ -18,7 +18,7 @@ namespace Arner.Service
 
         public async Task<User> AddUser(User user)
         {
-            var tempUser = _userRepo.GetUserByID(user.ID);
+            var tempUser = await _userRepo.GetUserByID(user.ID);
             if (tempUser != null)
                 throw new DuplicateDataException("The username is already existed");
             else
@@ -53,5 +53,7 @@ namespace Arner.Service
             else
                 return await _userRepo.Delete(tempUser);
         }
+
+        public async Task<IEnumerable<User>> GetAll() => await _userRepo.GetAll(); 
     }
 }

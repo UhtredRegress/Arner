@@ -9,5 +9,6 @@ namespace Arner.Service.IService
         Task<User?> GetUserById(int id); 
         Task<User> UpdateUser(int id, User user);
         Task<User> DeleteUser(int id);
+        Task<IEnumerable<User>> GetAll();
     }
 }

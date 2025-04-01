@@ -26,7 +26,7 @@ namespace Arner.Web.API
         {
             try
             {
-                var tempUser = await _userService.AddUser(user);
+                var tempUser = await _userService.Add(user);
                 return CreatedAtAction(nameof(GetUserById), new { id = tempUser.ID }, tempUser);
             }
             catch (DuplicateDataException e)
@@ -94,7 +94,7 @@ namespace Arner.Web.API
         {
             try
             {
-                var tempUser = await _userService.UpdateUser(id, user);
+                var tempUser = await _userService.Update(id, user);
                 return Ok(tempUser);
             }
             catch (NotMatchException e)
@@ -114,7 +114,7 @@ namespace Arner.Web.API
         {
             try
             {
-                var tempUser = await _userService.DeleteUser(id);
+                var tempUser = await _userService.Delete(id);
                 return Ok(tempUser);
             }
             catch (NotFoundException)

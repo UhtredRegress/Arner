@@ -16,7 +16,7 @@ namespace Arner.Service
             _userRepo = userRepo;
         }
 
-        public async Task<User> AddUser(User user)
+        public async Task<User> Add(User user)
         {
             var tempUser = await _userRepo.GetUserByID(user.ID);
             if (tempUser != null)
@@ -36,7 +36,7 @@ namespace Arner.Service
             return await _userRepo.GetUserByID(id);
         }
 
-        public async Task<User> UpdateUser(int id, User user)
+        public async Task<User> Update(int id, User user)
         {
             if (id != user.ID)
             {
@@ -45,10 +45,10 @@ namespace Arner.Service
             return await _userRepo.Update(user);
         }
 
-        public async Task<User> DeleteUser(int id)
+        public async Task<User> Delete(int id)
         {
             var tempUser = await _userRepo.GetUserByID(id);
-            if (tempUser != null)
+            if (tempUser == null)
                 throw new NotFoundException();
             else
                 return await _userRepo.Delete(tempUser);

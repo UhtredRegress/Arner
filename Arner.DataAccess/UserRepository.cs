@@ -19,7 +19,6 @@ namespace Arner.Service
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
             return user;
-            
         }
 
         public async Task<User> Delete(User user)
@@ -46,6 +45,5 @@ namespace Arner.Service
             return user;
         }
         
-        public async Task<IEnumerable<User>> GetAll() => await _context.Users.ToListAsync();
     }
 }

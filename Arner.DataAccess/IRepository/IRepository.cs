@@ -10,7 +10,6 @@ namespace Arner.DataAccess.IRepository
 {
     public interface IRepository<T> where T : class
     {
-        Task<IEnumerable<T>> GetAll();
         Task<T> Add(T t);
         Task<T> Update(T t);
         Task<T> Delete(T t);

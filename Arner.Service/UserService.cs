@@ -54,6 +54,5 @@ namespace Arner.Service
                 return await _userRepo.Delete(tempUser);
         }
 
-        public async Task<IEnumerable<User>> GetAll() => await _userRepo.GetAll(); 
     }
 }

@@ -42,5 +42,10 @@ namespace Arner.DataAccess
             await _context.SaveChangesAsync();
             return t;
         }
+
+        public async Task<Item?> GetByNameAndOwner(string name, int ownerId)
+        {
+            return await _context.Items.FirstOrDefaultAsync(i => i.Name == name && i.UserId == ownerId);  
+        }
     }
 }

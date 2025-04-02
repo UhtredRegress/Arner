@@ -10,5 +10,6 @@ namespace Arner.DataAccess.IRepository
     public interface IItemRepository : IRepository<Item>
     {
         Task<Item?> GetById(int id);
+        Task<Item?> GetByNameAndOwner(string name, int ownerId);
     }
 }

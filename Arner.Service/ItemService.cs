@@ -28,23 +28,39 @@ namespace Arner.Service
             {
                 throw new DuplicateDataException();
             }
-        
-            return await _itemRepo.Add(entity); ;
+  
+            return await _itemRepo.Add(entity); 
         }
 
-        public Task<Item> Delete(int id)
+        public async Task<Item> Delete(int id)
         {
-            throw new NotImplementedException();
+            var tempData = await _itemRepo.GetById(id);
+            
+            if (tempData == null)
+            {
+                throw new NotFoundException();
+            }
+
+            return await _itemRepo.Delete(tempData);
         }
 
-        public Task<Item> GetById(int id)
+        public async Task<Item?> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await _itemRepo.GetById(id);
         }
 
-        public Task<Item> Update(int id, Item entity)
+        public async Task<Item> Update(int id, Item entity)
         {
-            throw new NotImplementedException();
+            var foundItem =  _itemRepo.GetById(id);
+            if (foundItem == null)
+            {
+                throw new NotFoundException();
+            }
+            if (foundItem.Id != entity.Id)
+            {
+                throw new InvalidOperationException();
+            }
+            return await _itemRepo.Update(entity);
         }
     }
 }

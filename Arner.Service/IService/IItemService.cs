@@ -9,6 +9,6 @@ namespace Arner.Service.IService
 {
     public interface IItemService : IService<Item>
     {
-        public Task<Item> GetById(int id);
+        public Task<Item?> GetById(int id);
     }
 }

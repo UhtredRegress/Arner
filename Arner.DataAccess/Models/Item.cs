@@ -26,6 +26,6 @@ namespace Arner.DataAccess.Models
         public int ProviderId { get; set; } 
         public Provider Provider { get; set; }
         public ICollection<Batch> Batchs { get; set; }
-        public ICollection<Type> Types { get; set; }
+        public ICollection<Type> Types { get; set; } = [];
     }
 }

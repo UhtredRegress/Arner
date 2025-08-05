@@ -1,14 +1,15 @@
-
 using Arner.DataAccess;
 using Arner.Service.IRepository;
 using Arner.Service;
 using Microsoft.EntityFrameworkCore;
 using Arner.Service.IService;
+using Arner.DataAccess.IRepository;
 
 namespace Arner.API
 {
     public class Program
     {
+        
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -21,8 +22,10 @@ namespace Arner.API
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<ArnerDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
+           
 
             var app = builder.Build();
 

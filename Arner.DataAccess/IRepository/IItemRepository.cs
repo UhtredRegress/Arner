@@ -1,5 +1,4 @@
 ﻿using Arner.DataAccess.Models;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Arner.DataAccess.IRepository
 {
-    public interface IRepository<T> where T : class
+    public interface IItemRepository : IRepository<Item>
     {
-        Task<T> Add(T t);
-        Task<T> Update(T t);
-        Task<T> Delete(T t);
+        Task<Item?> GetById(int id);
+        Task<Item?> GetByNameAndOwner(string name, int ownerId);
     }
 }

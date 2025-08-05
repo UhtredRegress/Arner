@@ -26,7 +26,7 @@ namespace Arner.Web.API
         {
             try
             {
-                var tempUser = await _userService.AddUser(user);
+                var tempUser = await _userService.Add(user);
                 return CreatedAtAction(nameof(GetUserById), new { id = tempUser.ID }, tempUser);
             }
             catch (DuplicateDataException e)
@@ -63,22 +63,6 @@ namespace Arner.Web.API
             }
         }
 
-        [HttpGet]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(500)]
-        public async Task<IActionResult> GetAll()
-        {
-            try
-            {
-                var listUser = await _userService.GetAll();
-                return Ok(listUser.ToList());
-            }
-            catch (Exception) 
-            {
-                return StatusCode(500, "Error while getting data");
-            }
-        }
-
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -110,7 +94,7 @@ namespace Arner.Web.API
         {
             try
             {
-                var tempUser = await _userService.UpdateUser(id, user);
+                var tempUser = await _userService.Update(id, user);
                 return Ok(tempUser);
             }
             catch (NotMatchException e)
@@ -130,7 +114,7 @@ namespace Arner.Web.API
         {
             try
             {
-                var tempUser = await _userService.DeleteUser(id);
+                var tempUser = await _userService.Delete(id);
                 return Ok(tempUser);
             }
             catch (NotFoundException)

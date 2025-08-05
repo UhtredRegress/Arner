@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Type = Arner.DataAccess.Models.Type;
 
 namespace Arner.DataAccess
 {
@@ -19,13 +20,17 @@ namespace Arner.DataAccess
         public DbSet<Provider> Providers { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Batch> Batchs { get; set; }
-        public DbSet<Models.Type> Types { get; set; }
+        public DbSet<Type> Types { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
                 .HasIndex(e => e.Username)
                 .IsUnique();
+            modelBuilder.Entity<Type>()
+                .HasIndex(e => e.Name)
+                .IsUnique();
+
             modelBuilder.Entity<Item>()
                 .HasMany(e => e.Types)
                 .WithMany(e => e.Items)

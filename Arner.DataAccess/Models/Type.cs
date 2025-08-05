@@ -19,6 +19,6 @@ namespace Arner.DataAccess.Models
         public DateTime UpdatedAt { get; set; }
         [MaxLength(100, ErrorMessage = "This is out of length")]
         public string UpdatedBy { get; set; }
-        public ICollection<Item> Items { get; set; }
+        public ICollection<Item> Items { get; set; } = [];
     }
 }
